@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 738250704765763491}
   - component: {fileID: 6115260179757800654}
   - component: {fileID: 4545391781116025432}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: "Plataforma-peque\xF1a-temporizada"
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,73 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    //variable animacion
-    public Animator anim;
+    [SerializeField] private float speed;
 
-    public Rigidbody2D rb;
-    public Transform groundCheck;
-    public LayerMask groundLayer;
-
-    private float horizontal;
-    public float speed = 4f, jumpingPower = 10f;
     private bool isFacingRight = true;
-    private void Update()
-    {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+    private Vector2 input;
+    private Rigidbody2D rb;
+    private Animator animator;
 
-        if (!isFacingRight && horizontal > 0f)
-        {
-            Flip();
-        }
-        else if (isFacingRight && horizontal < 0f)
-        {
-            Flip();
-        }
-
-        Correr();
-    }
-    public void Correr()
+    void Start()
     {
-        if (horizontal > 0f || horizontal < 0f)
-        {
-            anim.SetBool("run", true);
-        }
-        if (horizontal == 0f)
-        {
-            anim.SetBool("run", false);
-        }
-    }
-    public void Jump(InputAction.CallbackContext context)
-    {
-        if (context.performed && IsGround())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-        }
-        if (context.canceled && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
-    private bool IsGround()
+    void Update()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        float xInput = Input.GetAxisRaw("Horizontal");
+        float yInput = Input.GetAxisRaw("Vertical");
+        input = new Vector2 (xInput, yInput).normalized;
+        Flip();
+        animator.SetFloat("Speed", input.magnitude);
     }
 
+    private void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + input * speed * Time.fixedDeltaTime);
+    }
 
     private void Flip()
     {
-        isFacingRight = !isFacingRight;
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1f;
-        transform.localScale = localScale;
-    }
-    public void Move(InputAction.CallbackContext context)
-    {
-        horizontal = context.ReadValue<Vector2>().x;
+
+        if((input.x < 0 && isFacingRight) || (input.x > 0 && !isFacingRight))
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 scale = transform.localScale;
+            scale.x *= -1;
+            transform.localScale = scale;
+        }
     }
 }
+
