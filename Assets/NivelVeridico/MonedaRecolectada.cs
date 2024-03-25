@@ -11,7 +11,7 @@ public class NewBehaviourScript : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
-            Destroy(gameObject, 0.5f);
+            Destroy(this.gameObject, 0.5f);
         }
     }
 }

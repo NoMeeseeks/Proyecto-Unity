@@ -5,11 +5,40 @@ using UnityEngine.SceneManagement;
 
 public class nivel : MonoBehaviour
 {
+    public bool nivelUno;
+    public bool nivelDos;
+    public bool nivelTres;
+    public bool nivelCuatro;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (nivelUno)
         {
-            SceneManager.LoadScene("NivelBonusVeridico");
+            if (other.CompareTag("Player"))
+            {
+                SceneManager.LoadScene("NivelInicial");
+
+            }
+        }
+        else if (nivelDos)
+        {
+            if (other.CompareTag("Player"))
+            {
+                SceneManager.LoadScene("NivelBonusVeridico");
+            }
+        }
+        else if (nivelTres)
+        {
+            if (other.CompareTag("Player"))
+            {
+                SceneManager.LoadScene("NivelInicial");
+            }
+        }
+        else if (nivelCuatro)
+        {
+            if (other.CompareTag("Player"))
+            {
+                SceneManager.LoadScene("NivelInicial");
+            }
         }
     }
 }
