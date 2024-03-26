@@ -56667,8 +56667,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2247373413760145353, guid: d88a47611a0ce884e808837a459be966, type: 3}
-      propertyPath: nivelUno
+      propertyPath: nivelDos
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2247373413760145353, guid: d88a47611a0ce884e808837a459be966, type: 3}
+      propertyPath: nivelUno
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4229822233645233487, guid: d88a47611a0ce884e808837a459be966, type: 3}
       propertyPath: m_LocalPosition.x

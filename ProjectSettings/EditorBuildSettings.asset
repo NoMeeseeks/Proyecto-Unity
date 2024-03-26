@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NivelBonusVeridico.unity
     guid: e77043d3936033d42b6ccf9bf8822c4d
+  - enabled: 1
+    path: Assets/Scenes/EscenaMel.unity
+    guid: d74574fe55ca75140b1dc375d122734c
+  - enabled: 1
+    path: Assets/Scenes/NivelFacil.unity
+    guid: 02ca65057aa238b4d8086af2a7b80b14
   m_configObjects: {}

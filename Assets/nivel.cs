@@ -15,7 +15,7 @@ public class nivel : MonoBehaviour
         {
             if (other.CompareTag("Player"))
             {
-                SceneManager.LoadScene("NivelInicial");
+                SceneManager.LoadScene("NivelBonusVeridico");
 
             }
         }
@@ -23,14 +23,14 @@ public class nivel : MonoBehaviour
         {
             if (other.CompareTag("Player"))
             {
-                SceneManager.LoadScene("NivelBonusVeridico");
+                SceneManager.LoadScene("EscenaMel");
             }
         }
         else if (nivelTres)
         {
             if (other.CompareTag("Player"))
             {
-                SceneManager.LoadScene("NivelInicial");
+                SceneManager.LoadScene("NivelFacil");
             }
         }
         else if (nivelCuatro)

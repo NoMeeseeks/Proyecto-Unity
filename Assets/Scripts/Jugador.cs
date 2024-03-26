@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Jugador : MonoBehaviour
 {
+
     private Rigidbody2D rb2D;
     private float movimientoHorizontal = 0f; // entrada de los controles
     public float velocidadDeMovimiento;
@@ -47,16 +48,15 @@ public class Jugador : MonoBehaviour
 
         if (movimientoHorizontal != 0f)
         {
-            animator.SetBool("run", true);
+            animator.SetBool("corriendo", true);
         }
         else
         {
-            animator.SetBool("run", false);
+            animator.SetBool("corriendo", false);
         }
         salto = false;
 
     }
-
 
     private void Mover(float mover, bool saltar)
     {
@@ -85,5 +85,4 @@ public class Jugador : MonoBehaviour
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + 180, 0);
         velocidad *= -1;
     }
-
 }
